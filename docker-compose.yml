@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: logisticmanagement-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: logisticmanagement
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - logisticmanagement-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: logisticmanagement-app
+    restart: unless-stopped
+    ports:
+      - "2121:2121"
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongo
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SPRING_DATA_MONGODB_DATABASE=logisticmanagement
+      - SERVER_PORT=2121
+    depends_on:
+      - mongo
+    networks:
+      - logisticmanagement-network
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  logisticmanagement-network:
+    driver: bridge
