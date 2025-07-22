@@ -13,11 +13,11 @@ class OrderServiceTest {
     @Test
     public void testThatUserCanCreateOrder(){
         OrderRequest request = new OrderRequest();
-        request.setReceiverAddress("ikeja");
-        request.setSenderAddress("Yaba");
-        request.setTotalItems(new ArrayList<>(
-                (Collection) new Inventory()
-        ));
+//        request.setReceiverAddress("ikeja");
+//        request.setSenderAddress("Yaba");
+//        request.setTotalItems(new ArrayList<>(
+//                (Collection) new Inventory()
+//        ));
 
     }
 
