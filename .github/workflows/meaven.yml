@@ -62,4 +62,4 @@ jobs:
         with:
 
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/urlshortener:${{ github.sha }},${{ secrets.DOCKERHUB_USERNAME }}/urlshortener:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/logisticmanagement:${{ github.sha }},${{ secrets.DOCKERHUB_USERNAME }}/logisticmanagement:latest
